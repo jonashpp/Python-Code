@@ -11,27 +11,20 @@ plots_path = BASE_DIR / "Plots"
 windprofile_path = plots_path / "Windprofile (Gebiet, Referenzhöhe)"
 windprofile_path.mkdir(exist_ok=True)
 
-#%%
-
 # Faktoren im Potenzansatz (Oberflächenrauhigkeit) vgl. VDI 3782/1
 
 m_land = {"I": 0.37, "II": 0.32, "III/1": 0.26, "III/2": 0.18, "IV": 0.14, "V": 0.12}
 m_stadt = {"I": 0.52, "II": 0.48, "III/1": 0.31, "III/2": 0.31, "IV": 0.31, "V": 0.20}
-
-#%%
 
 # Ausbreitungsklassen (sehr stabile (I) und neutrale (III/2) Schichtung ausgewählt)
 
 disp_kla=["I", "III/2"]
 all_kla=["I", "II", "III/1", "III/2", "IV", "V"]
 
-#%%
-
 # Definition Höhe Windprofile
 
 z=np.linspace(10,200,100)
 
-#%%
 
 # Referenzhöhen [m] & Referenzwindgeschwindigkeiten [m/s] (frei wählbar)
 # Aufrunden bei zweiter Nachkommastelle ab 5
@@ -43,8 +36,6 @@ u_A = {
     "150": 9.0  # 150m = 9,0 m/s (Wert: 8,46m/s)
 }
 
-#%%
-
 # Definition Windprofil-Funktion (s. Abschnitt II 'Methoden')
 
 def windprofil(u_A,z,z_A,m):
@@ -55,8 +46,6 @@ def windprofil(u_A,z,z_A,m):
     m   - Ausbreitungsklasse
     """
     return u_A*(z/z_A)**m
-
-#%%
 
 # Windprofil berechnen (Schleife über Referenzhöhe für die Klassen I und III/2)
 
@@ -85,8 +74,6 @@ print("Stadt, I:    ", round(u_stadt[10]["I"][idx_50], 2))
 print("Stadt, III/2:", round(u_stadt[10]["III/2"][idx_50], 2))
 print()
 
-
-#%%
 
 # Ausgabe der Windgeschwindigkeiten über verschiedene Höhen für das Gauß-Fahnenmodell
 # Referenzhöhe: 150m
@@ -121,8 +108,6 @@ print("Stadt:", u_all_stadt)
 # 40: {'I': 4.53, 'II': 4.77, 'III/1': 5.97, 'III/2': 5.97, 'IV': 5.97, 'V': 6.91}, 
 # 50: {'I': 5.08, 'II': 5.31, 'III/1': 6.4, 'III/2': 6.4, 'IV': 6.4, 'V': 7.22}
 
-#%%
-
 # Ausgabedateien
 
 output_file_land_10 = "Windprofil (Land, Referenzhöhe 10m).png"
@@ -131,8 +116,6 @@ output_file_land_150 = "Windprofil (Land, Referenzhöhe 150m).png"
 output_file_stadt_150 = "Windprofil (Stadt, Referenzhöhe 150m).png"
 output_file_vgl_10 ="Windprofil (Vergleich Land & Stadt, Referenzhöhe 10m)_neu.png"
 output_file_vgl_150 ="Windprofil (Vergleich Land & Stadt, Referenzhöhe 150m)_neu.png"
-
-#%%
 
 # Plots: Windprofile für neutrale und stabile Schichtung (Land & Stadt)
 
@@ -215,5 +198,3 @@ plt.title("Windprofil - Vergleich Land & Stadt, 150m", fontweight='bold')
 plt.legend()
 plt.grid(True, linewidth=0.4, color='lightgray')
 plt.savefig(windprofile_path / output_file_vgl_150)
-
-#%%
