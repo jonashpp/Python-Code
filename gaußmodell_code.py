@@ -111,7 +111,6 @@ for disp in range(len(disp_kla)):
     plt.savefig(emissions_path / f"Emissionskonzentration (Klasse {name_kla}, {gebiet}, 10-50m).png", dpi=300)
     plt.show()
     
-
 # Plot: Immissionskonzentration in verschiedenen Freisetzungshöhen (Fläche)
 
 plt.rc('legend', fontsize=8)
