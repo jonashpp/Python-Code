@@ -74,7 +74,6 @@ print("Stadt, I:    ", round(u_stadt[10]["I"][idx_50], 2))
 print("Stadt, III/2:", round(u_stadt[10]["III/2"][idx_50], 2))
 print()
 
-
 # Ausgabe der Windgeschwindigkeiten über verschiedene Höhen für das Gauß-Fahnenmodell
 # Referenzhöhe: 150m
 
