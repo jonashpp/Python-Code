@@ -120,7 +120,6 @@ levels = [1, 2, 3, 4, 5, 7, 10, 14, 19, 25]
 level_colors = ['red', 'orange', 'green', 'deepskyblue', 'navy',
                 'purple', 'brown', 'magenta', 'olive', 'black']
 
-
 x = np.linspace(1, 4200, 3500)
 y = np.linspace(-400, 400, 800)
 X, Y = np.meshgrid(x, y)
