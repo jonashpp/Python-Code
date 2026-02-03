@@ -161,3 +161,4 @@ for hoehe in range(len(hoehen)):
     fig.savefig(immissions_path / f"Immissionskonzentration (Höhe {H_neu}m, Klasse {kla_neu.replace('/', '_')}, {gebiet}).png", 
             dpi=300, bbox_inches="tight")
     plt.show()
+    
